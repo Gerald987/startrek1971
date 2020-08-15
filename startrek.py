@@ -321,7 +321,6 @@ def shield_controls():
     print("add = Add energy to shields.")
     print("sub = Subtract energy from shields.")
     print()
-    print("Enter shield control command: ")
     command = input("Enter shield control command: ").strip().lower()
     print()
     if command == "add":
@@ -697,6 +696,7 @@ def input_double(prompt):
 
 def generate_sector():
     global game
+    print(game.quadrant_x,type(game.quadrant_x))
     quadrant = game.quadrants[game.quadrant_y][game.quadrant_x]
     starbase = quadrant.starbase
     stars = quadrant.stars
