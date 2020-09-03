@@ -639,8 +639,8 @@ def navigation():
             y = 0
         elif y > 63:
             y = 63
-        quad_x = int(round(x)) / 8
-        quad_y = int(round(y)) / 8
+        quad_x = int(int(round(x)) / 8)
+        quad_y = int(int(round(y)) / 8)
         game.sector_x = int(round(x)) % 8
         game.sector_y = int(round(y)) % 8
         if quad_x != game.quadrant_x or quad_y != game.quadrant_y:
