@@ -321,6 +321,7 @@ def shield_controls():
     print("add = Add energy to shields.")
     print("sub = Subtract energy from shields.")
     print()
+    print("Enter shield control command: ")
     command = input("Enter shield control command: ").strip().lower()
     print()
     if command == "add":
@@ -674,7 +675,7 @@ def navigation():
 
     if game.docked:
         print("Lowering shields as part of docking sequence...")
-        print("Enterprise successfully docked with starbase.")
+        print("Enterprise successfully docked with starbase and now doing repairs and recharge.")
         print()
     else:
         if game.quadrants[game.quadrant_y][game.quadrant_x].klingons > 0 \
@@ -696,7 +697,8 @@ def input_double(prompt):
 
 def generate_sector():
     global game
-    print(game.quadrant_x,type(game.quadrant_x))
+    print(game.quadrant_x)
+    print(game.quadrant_y)
     quadrant = game.quadrants[game.quadrant_y][game.quadrant_x]
     starbase = quadrant.starbase
     stars = quadrant.stars
