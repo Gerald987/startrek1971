@@ -207,7 +207,10 @@ def starbase_calculator():
         print("Direction: {0:1.2f}".format(
             compute_direction(game.sector_x, game.sector_y, game.starbase_x, game.starbase_y)
         ))
-        print("Distance:  {0:2.2f}".format(distance(game.sector_x, game.sector_y, game.starbase_x, game.starbase_y) / 8))
+        if distance(game.sector_x, game.sector_y, game.starbase_x, game.starbase_y) ==0.00:
+            print("You are ontop of the star base, move to dock.")
+        else: 
+            print("Distance:  {0:2.2f}".format(distance(game.sector_x, game.sector_y, game.starbase_x, game.starbase_y) / 8))
     else:
         print("There are no starbases in this quadrant.")
     print()
@@ -688,7 +691,10 @@ def navigation():
 
 def input_double(prompt):
     text = input(prompt)
-    value = float(text)
+    try:
+        value = float(text)
+    except:
+        value = 0.0
     if type(value) == float:
         return value
     else:
