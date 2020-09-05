@@ -709,8 +709,6 @@ def input_double(prompt):
 
 def generate_sector():
     global game
-    print(game.quadrant_x)
-    print(game.quadrant_y)
     quadrant = game.quadrants[game.quadrant_y][game.quadrant_x]
     starbase = quadrant.starbase
     stars = quadrant.stars
