@@ -1,6 +1,6 @@
 ﻿from math import atan2, pi, sqrt, cos, sin
 import random
-
+import argparse
 import strings
 
 
@@ -33,6 +33,12 @@ class KlingonShip():
 class Game():
 
     def __init__(self):
+        parser = argparse.ArgumentParser()
+        parser.add_argument("difficulty",
+                    choices=["Easy", "Hard"]
+                    )
+        args = parser.parse_args()
+        self.difficulty=args.difficulty
         self.star_date = 0
         self.time_remaining = 0
         self.energy = 0
@@ -834,11 +840,19 @@ def initialize_game():
     game.sector_x = random.randint(0, 7)
     game.sector_y = random.randint(0, 7)
     game.star_date = random.randint(0, 50) + 2250
-    game.energy = 3000
-    game.photon_torpedoes = 10
-    game.time_remaining = 40 + random.randint(0, 9)
-    game.klingons = 15 + random.randint(0, 5)
-    game.starbases = 2 + random.randint(0, 2)
+    if game.difficulty== "Easy":
+        game.energy = 3000
+        game.photon_torpedoes = 10
+        game.time_remaining = 40 + random.randint(0, 9)
+        game.klingons = 5 + random.randint(0, 5)
+        game.starbases = 4 + random.randint(0, 2)
+    else:
+        game.energy = 2000
+        game.photon_torpedoes = 5
+        game.time_remaining = 40 + random.randint(0, 9)
+        game.klingons = 15 + random.randint(0, 10)
+        game.starbases = 2 + random.randint(0, 2)
+
     game.destroyed = False
     game.navigation_damage = 0
     game.short_range_scan_damage = 0
