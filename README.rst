@@ -37,3 +37,9 @@ Here is a list of possible improvements:
 - Easier navigation (using cartesian system maybe)
 - Make some parts more 'Pythonic'
 - ...Plenty more!
+
+How to use
+==========
+I changed the game so that there would be a difficulty. But while doing it I made it so that you need the use a command prompt
+to get the difficulty, so if you would like to play this game, then download it and run with something like ubuntu.My brother 
+made the code from python2 to python3 so I could make further changes to it.
