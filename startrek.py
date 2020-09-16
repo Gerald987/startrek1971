@@ -681,7 +681,11 @@ def navigation():
         game.star_date += 1
 
     short_range_scan()
-
+    
+    if game.docked:
+        quadrant = game.quadrants[game.quadrant_y][game.quadrant_x]
+        if quadrant.klingons > 0:
+            print("You are still vulnerable to klingon ships")    
     if game.docked:
         print("Lowering shields as part of docking sequence...")
         print("Enterprise successfully docked with starbase and now doing repairs and recharge.")
