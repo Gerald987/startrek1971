@@ -682,10 +682,12 @@ def navigation():
 
     short_range_scan()
     
-    if game.docked:
-        quadrant = game.quadrants[game.quadrant_y][game.quadrant_x]
-        if quadrant.klingons > 0:
-            print("You are still vulnerable to klingon ships")    
+    if game.quadrants[game.quadrant_y][game.quadrant_x].starbase:
+           if distance(game.sector_x, game.sector_y, game.starbase_x, game.starbase_y) <2.00:
+               print("Auto docking in progress...")
+               game.docked = True
+               print("Auto docking complte. You have docked")
+
     if game.docked:
         print("Lowering shields as part of docking sequence...")
         print("Enterprise successfully docked with starbase and now doing repairs and recharge.")
@@ -697,6 +699,19 @@ def navigation():
             print()
         elif not repair_damage():
             induce_damage(-1)
+
+    if game.docked:
+        game.energy = 3000
+        game.photon_torpedoes = 10
+        game.navigation_damage = 0
+        game.short_range_scan_damage = 0
+        game.long_range_scan_damage = 0
+        game.shield_control_damage = 0
+        game.computer_damage = 0
+        game.photon_damage = 0
+        game.phaser_damage = 0
+        game.shield_level = 0
+        game.docked = True
 
 
 def input_double(prompt):
